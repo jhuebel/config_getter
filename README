@@ -9,6 +9,6 @@ Configuration files are named in the following format:
 
 	DEVICENAME-IPADDRESS-TIMESTAMP-config.txt
 
-Per device SNMP community strings and destination TFTP servers can be set within the database. If a community string or TFTP server is not set for the device, then the defaults (set below) will be used.
+Per device SNMP community strings and destination TFTP servers can be set within the database. If a community string or TFTP server is not set for the device, then the defaults will be used.
 
 SNMP community strings should have READ/WRITE access, since Cisco configurations are not available to READONLY SNMP connections.
