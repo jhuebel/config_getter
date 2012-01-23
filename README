@@ -1,0 +1,14 @@
+Cisco Config Getter
+-----
+
+This script simply cycles through Cisco devices, stored in a database, instructing each device to upload its running configuration to an existing TFTP server.
+
+The current rate that it cycles through devices is once every 30 seconds. No attempt is made to verify that the device successfully uploaded its configuration to the TFTP server. If the device fails to upload its configuration within 30 seconds, an instruction is sent to the device to abort the upload.
+
+Configuration files are named in the following format:
+
+	DEVICENAME-IPADDRESS-TIMESTAMP-config.txt
+
+Per device SNMP community strings and destination TFTP servers can be set within the database. If a community string or TFTP server is not set for the device, then the defaults (set below) will be used.
+
+SNMP community strings should have READ/WRITE access, since Cisco configurations are not available to READONLY SNMP connections.
