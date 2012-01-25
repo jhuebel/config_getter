@@ -1,25 +1,58 @@
 <?php
 
 /*
+
+Copyright (c) 2010, Jason Huebel
+All rights reserved.
+
+Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions
+are met:
+
+* Redistributions of source code must retain the above copyright notice,
+  this list of conditions and the following disclaimer.
+
+* Redistributions in binary form must reproduce the above copyright notice,
+  this list of conditions and the following disclaimer in the documentation
+  and/or other materials provided with the distribution.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE
+FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
+DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
+SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
+CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
+OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+*/
+
+/*
 	Cisco Config Getter
 	config_getter.php
 
-	This script simply cycles through Cisco devices, stored in a database, instructing each device
-	to upload its running configuration to an existing TFTP server.
+	This script simply cycles through Cisco devices, stored in a database, 
+	instructing each device	to upload its running configuration to an existing
+	TFTP server.
 
-	The current rate that it cycles through devices is once every 30 seconds. No attempt is made to verify that the
-	device successfully uploaded its configuration to the TFTP server. If the device fails to upload its configuration
-	within 30 seconds, an instruction is sent to the device to abort the upload.
+	The current rate that it cycles through devices is once every 30 seconds.
+	No attempt is made to verify that the	device successfully uploaded its
+	configuration to the TFTP server. If the device fails to upload its
+	configuration	within 30 seconds, an instruction is sent to the device to
+	abort the upload.
 
 	Configuration files are named in the following format:
 
 		DEVICENAME-IPADDRESS-TIMESTAMP-config.txt
 
-	Per device SNMP community strings and destination TFTP servers can be set within the database. If a community string
-	or TFTP server is not set for the device, then the defaults (set below) will be used.
+	Per device SNMP community strings and destination TFTP servers can be set
+	within the database. If a community string or TFTP server is not set for
+	the device, then the defaults (set below) will be used.
 
-	SNMP community strings should have READ/WRITE access, since Cisco configurations are not available to READONLY
-	SNMP connections.
+	SNMP community strings should have READ/WRITE access, since Cisco
+	configurations are not available to READONLY SNMP connections.
 
 */
 
